@@ -1,0 +1,38 @@
+{
+  "name": "@churchapps/mobilehelper",
+  "version": "0.0.1",
+  "description": "Shared code between ChurchApps react native applications.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "link": "link",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiveChurchSolutions/MobileHelper.git"
+  },
+  "keywords": [
+    "ChurchApps"
+  ],
+  "author": "ChurchApps.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LiveChurchSolutions/MobileHelper/issues"
+  },
+  "homepage": "https://github.com/LiveChurchSolutions/MobileHelper#readme",
+  "dependencies": {
+    "@churchapps/helpers": "1.0.6",
+    "appcenter-analytics": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.8",
+    "copyfiles": "^2.4.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.1",
+    "tslint": "^6.1.2",
+    "typescript": "^5.2.2"
+  }
+}
