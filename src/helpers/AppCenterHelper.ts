@@ -1,7 +1,6 @@
 
 import Analytics from 'appcenter-analytics';
 
-
 export class AppCenterHelper {
 
   static appendedData:any = {};
@@ -20,7 +19,4 @@ export class AppCenterHelper {
     Analytics.trackEvent(name, props);
   }
 
-
 }
-
-
