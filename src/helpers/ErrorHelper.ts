@@ -1,5 +1,5 @@
 import { DeviceEventEmitter } from "react-native";
-import { setJSExceptionHandler, setNativeExceptionHandler } from "react-native-exception-handler";
+import { setJSExceptionHandler } from "react-native-exception-handler";
 import { AppCenterHelper } from "./AppCenterHelper";
 
 export class ErrorHelper {
@@ -35,9 +35,12 @@ export class ErrorHelper {
       ErrorHelper.logError("Unhandled Javascript", error.toString());
     });
 
+    //I believe this cannot be called from the package, only the main app.
+    /*
     setNativeExceptionHandler((exceptionString: string) => {
       ErrorHelper.logError("Unhandled Native", exceptionString);
     }, false, true);
+    */
 
   }
 
