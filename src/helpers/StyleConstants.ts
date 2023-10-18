@@ -1,5 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { heightPercentageToDP, widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { Dimensions } from "react-native";
 
 export class StyleConstants {
   static deviceWidth = Dimensions.get("window").width;
