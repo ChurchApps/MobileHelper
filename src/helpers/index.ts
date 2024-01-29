@@ -3,6 +3,7 @@ export { AppCenterHelper } from "./AppCenterHelper";
 export { DeviceInfo } from "./DeviceInfo";
 export { DimensionHelper } from "./DimensionHelper";
 export { ErrorHelper } from "./ErrorHelper";
+export { FirebaseHelper } from "./FirebaseHelper";
 export * from "./Interfaces"
 export { PushNotificationHelper, pushEventBus } from "./PushNotificationHelper";
 export { StyleConstants } from "./StyleConstants";

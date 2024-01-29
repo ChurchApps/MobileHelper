@@ -15,6 +15,8 @@ export class AppCenterHelper {
     for (const property in this.appendedData) {
       data[property] = this.appendedData[property];
     }
+    //props.church = CacheHelper.church?.name || "";
+    //props.name = UserHelper.user?.displayName;
     props.appVersion = pkg.version;
     Analytics.trackEvent(name, props);
   }

@@ -1,12 +1,18 @@
-import messaging from '@react-native-firebase/messaging';
+import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 import { DeviceEventEmitter, PermissionsAndroid, Platform } from 'react-native';
 import { DeviceInfo } from './DeviceInfo';
-import { ApiHelper, ChurchInterface, LoginUserChurchInterface, UserHelper } from '@churchapps/helpers';
+import { ApiHelper } from '@churchapps/helpers';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export class PushNotificationHelper {
 
   static fcmToken: string = "";
+
+  static async registerBackgroundHandler(func: (remoteMessage: FirebaseMessagingTypes.RemoteMessage) => void) {
+    messaging().setBackgroundMessageHandler(async remoteMessage => {
+      func(remoteMessage);
+    });
+  }
 
   static async registerUserDevice(appName:string) {
     const fcmToken = await this.getFcmToken();
