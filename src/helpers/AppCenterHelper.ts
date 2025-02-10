@@ -1,26 +1,23 @@
 
-import Analytics from 'appcenter-analytics';
+import * as Analytics from 'expo-firebase-analytics';
+import { Platform } from 'react-native';
+import packageJson from '../../package.json';
 
-export class AppCenterHelper {
+export class FirebaseAnalyticsHelper {
+  static appendedData: Record<string, any> = {};
 
-  static appendedData:any = {};
-
-  static init(data:any) {
+  static init(data: Record<string, any>) {
     this.appendedData = data;
   }
 
-  static trackEvent(name: string, data?: any) {
-    const props = (data) ? data : {}
-    for (const property in this.appendedData) {
-      data[property] = this.appendedData[property];
-    }
-    //props.church = CacheHelper.church?.name || "";
-    //props.name = UserHelper.user?.displayName;
+  static async trackEvent(name: string, data: Record<string, any> = {}) {
+    const props: Record<string, any> = { ...data, ...this.appendedData };
+    props['appVersion'] = packageJson.version;
+    
     try {
-      var pkg = require('../../package.json');
-      props.appVersion = pkg.version;
-    } catch (e) {}
-    Analytics.trackEvent(name, props);
+      await Analytics.logEvent(name, props);
+    } catch (error) {
+      console.error('Error tracking event:', error);
+    }
   }
-
 }
