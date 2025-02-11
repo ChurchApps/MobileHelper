@@ -1,12 +1,8 @@
 {
-  "name": "mobilehelper",
-  "version": "1.0.0",
-  "description": "Shared code between ChurchApps React Native applications (Expo version).",
+  "name": "@churchapps/mobilehelper",
   "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LiveChurchSolutions/MobileHelper.git"
-  },
+  "version": "0.1.5",
+  "description": "Shared code between ChurchApps react native applications.",
   "keywords": [
     "ChurchApps",
     "expo",
