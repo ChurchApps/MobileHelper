@@ -1,15 +1,16 @@
 import { DeviceEventEmitter } from "react-native";
 import { setJSExceptionHandler } from "react-native-exception-handler";
-import { AppCenterHelper } from "./AppCenterHelper";
+
+import { FirebaseAnalyticsHelper } from "./AppCenterHelper";
 
 export class ErrorHelper {
 
   static logEvent(eventType: string, source: string, message: string) {
-    AppCenterHelper.trackEvent(eventType, { source, message });
+    FirebaseAnalyticsHelper.trackEvent(eventType, { source, message });
   }
 
   static logError(source: string, message: string) {
-    AppCenterHelper.trackEvent("Error", { source, message });
+    FirebaseAnalyticsHelper.trackEvent("Error", { source, message });
   }
 
   static onJavaError(event: any) {
