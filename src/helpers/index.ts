@@ -1,5 +1,5 @@
 export * from "@churchapps/helpers";
-export { AppCenterHelper } from "./AppCenterHelper";
+export { FirebaseAnalyticsHelper } from "./AppCenterHelper";
 export { DeviceInfo } from "./DeviceInfo";
 export { DimensionHelper } from "./DimensionHelper";
 export { ErrorHelper } from "./ErrorHelper";
