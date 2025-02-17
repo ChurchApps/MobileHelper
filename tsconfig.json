@@ -1,17 +1,51 @@
 {
+  // Use the Expo base config as requested
   "extends": "expo/tsconfig.base",
+
   "compilerOptions": {
+    // From your old tsconfig
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],    
+    "typeRoots": ["src/@types"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "react-native",
+    "skipLibCheck": true,
+
+    // Combine strict flags (both had "strict": false, so keep it)
     "strict": false,
+
+    // Merge both sets of paths
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "*": ["node_modules/*"],
+      "@/*": ["./*"]
     }
   },
+
+  // Merge includes from both files
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+    "src/**/*"
+  ],
+
+  // Keep excludes from old tsconfig
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
   ]
 }
