@@ -1,6 +1,6 @@
 {
   "name": "@churchapps/mobilehelper",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Shared code between ChurchApps react native applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -29,6 +29,11 @@
     "@react-native-firebase/analytics": "^18.8.0",
     "@react-native-firebase/messaging": "^18.8.0",
     "appcenter-analytics": "^5.0.0",
+    "expo-application": "^6.1.4",
+    "expo-constants": "^17.1.6",
+    "expo-device": "^7.1.4",
+    "expo-firebase-analytics": "^8.0.0",
+    "expo-notifications": "^0.31.2",
     "react": "^18.2.0",
     "react-native": "^0.72.4",
     "react-native-device-info": "^10.12.0",
