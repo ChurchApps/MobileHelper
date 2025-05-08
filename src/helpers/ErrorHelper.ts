@@ -1,15 +1,15 @@
-import { DeviceEventEmitter } from 'react-native';
-import { ErrorUtils } from 'react-native';
+import { DeviceEventEmitter } from "react-native";
+import { setJSExceptionHandler } from "react-native-exception-handler";
+import { AppCenterHelper } from "./AppCenterHelper";
 
 export class ErrorHelper {
 
   static logEvent(eventType: string, source: string, message: string) {
-    console.log(`Event: ${eventType}`, { source, message });
+    AppCenterHelper.trackEvent(eventType, { source, message });
   }
 
-  static logError(source: string, error: any) {
-    const message = error.message || error;
-    console.error(`Error from ${source}:`, message);
+  static logError(source: string, message: string) {
+    AppCenterHelper.trackEvent("Error", { source, message });
   }
 
   static onJavaError(event: any) {
@@ -26,24 +26,22 @@ export class ErrorHelper {
   }
 
   static initJava() {
-    DeviceEventEmitter.addListener('onError', ErrorHelper.onJavaError);
-    DeviceEventEmitter.addListener('onEvent', ErrorHelper.onJavaEvent);
+    DeviceEventEmitter.addListener("onError", ErrorHelper.onJavaError);
+    DeviceEventEmitter.addListener("onEvent", ErrorHelper.onJavaEvent);
   }
 
   static initUnhandled() {
-    // Set up global error handler
-    const originalErrorHandler = ErrorUtils.getGlobalHandler();
-    ErrorUtils.setGlobalHandler((error: Error, isFatal?: boolean) => {
+    setJSExceptionHandler((error, isFatal) => {
       ErrorHelper.logError("Unhandled Javascript", error.toString());
-      if (originalErrorHandler) {
-        originalErrorHandler(error, isFatal);
-      }
     });
 
-    // For native errors, we'll use the existing DeviceEventEmitter
-    DeviceEventEmitter.addListener('onError', (error) => {
-      ErrorHelper.logError("Unhandled Native", error);
-    });
+    //I believe this cannot be called from the package, only the main app.
+    /*
+    setNativeExceptionHandler((exceptionString: string) => {
+      ErrorHelper.logError("Unhandled Native", exceptionString);
+    }, false, true);
+    */
+
   }
 
 }
