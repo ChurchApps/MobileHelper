@@ -1,7 +1,7 @@
 {
   "name": "@churchapps/mobilehelper",
   "main": "dist/index.js",
-  "version": "0.2.12",
+  "version": "0.2.9",
   "description": "Shared code between ChurchApps react native applications.",
   "keywords": [
     "ChurchApps",
