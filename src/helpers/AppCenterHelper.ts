@@ -1,5 +1,4 @@
-
-import * as Analytics from 'expo-firebase-analytics';
+import analytics from '@react-native-firebase/analytics';
 import Constants from 'expo-constants';
 
 export class FirebaseAnalyticsHelper {
@@ -15,7 +14,7 @@ export class FirebaseAnalyticsHelper {
     props['appVersion'] = appVersion;
 
     try {
-      await Analytics.logEvent(name, props);
+      await analytics().logEvent(name, props);
     } catch (error) {
       console.error('Error tracking event:', error);
     }
