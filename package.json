@@ -1,6 +1,6 @@
 {
   "name": "@churchapps/mobilehelper",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Shared code between ChurchApps react native applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/LiveChurchSolutions/MobileHelper#readme",
   "dependencies": {
-    "@churchapps/helpers": "1.0.34",
+    "@churchapps/helpers": "1.0.35",
     "@react-native-async-storage/async-storage": "^2.1.2",
     "expo-application": "^6.1.4",
     "expo-constants": "^17.1.6",
