@@ -1,6 +1,6 @@
 {
   "name": "@churchapps/mobilehelper",
-  "version": "0.3.5",
+  "version": "0.3.7",
   "description": "Shared code between ChurchApps react native applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "react-native-snackbar": "^2.9.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
+    "react": "^19.0.0",
     "react-native": "^0.79.0",
     "@react-native-firebase/analytics": "^22.2.0"
   },
