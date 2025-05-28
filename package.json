@@ -1,6 +1,6 @@
 {
   "name": "@churchapps/mobilehelper",
-  "version": "0.3.10",
+  "version": "0.3.13",
   "description": "Shared code between ChurchApps react native applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -30,8 +30,7 @@
     "expo-constants": "^17.1.6",
     "expo-device": "^7.1.4",
     "expo-notifications": "^0.31.2",
-    "react-native-exception-handler": "^2.10.10",
-    "react-native-snackbar": "^2.9.0"
+    "react-native-exception-handler": "^2.10.10"
   },
   "peerDependencies": {
     "react": "^19.0.0",
