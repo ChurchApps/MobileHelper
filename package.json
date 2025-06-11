@@ -1,6 +1,6 @@
 {
   "name": "@churchapps/mobilehelper",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "Shared code between ChurchApps react native applications.",
   "main": "dist/index.js",
   "scripts": {
@@ -24,32 +24,25 @@
   },
   "homepage": "https://github.com/LiveChurchSolutions/MobileHelper#readme",
   "dependencies": {
-    "@churchapps/helpers": "1.0.35",
-    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@churchapps/helpers": "^1.0.37",
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "expo-application": "^6.1.4",
     "expo-constants": "^17.1.6",
     "expo-device": "^7.1.4",
-    "expo-notifications": "^0.31.2",
+    "expo-notifications": "^0.31.3",
     "react-native-exception-handler": "^2.10.10"
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-native": "^0.79.0"
+    "react-native": "^0.79.3"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^5.0.1",
+    "npm-run-all2": "^7.0.2",
+    "rimraf": "^5.0.10",
     "typescript": "^5.8.3"
   },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+  "overrides": {
+    "glob": "^10.4.5",
+    "rimraf": "^5.0.10"
   }
 }

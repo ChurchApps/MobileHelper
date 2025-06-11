@@ -1,4 +1,3 @@
-import { UniqueIdHelper } from '@churchapps/helpers';
 // import RNDI from 'react-native-device-info';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as RNDI from 'expo-device';
@@ -20,34 +19,32 @@ export interface DeviceInfoInterface {
 }
 
 export class DeviceInfo {
+  private static current: DeviceInfoInterface | null = null;
 
-  private static current:DeviceInfoInterface = null;
-
-  static async getDeviceInfo() {
+  static async getDeviceInfo(): Promise<DeviceInfoInterface> {
     if (this.current === null) {
-      const details: DeviceInfoInterface = {}
-  
-      details.appName = Constants.manifest?.name ?? "Unknown"; // App Name
-      details.deviceName = RNDI.deviceName ?? "Unknown"; // Device Name
-      details.buildId = Constants.nativeBuildVersion ?? "Unknown"; // Build ID
-      details.buildNumber = Constants.manifest?.version ?? "Unknown"; // Build Number
-      details.brand = RNDI.brand ?? "Unknown"; // Device Brand
-      details.device = RNDI.modelName ?? "Unknown"; // Device Model
+      const details: DeviceInfoInterface = {};
+
+      details.appName = Constants.manifest?.name ?? "Unknown";
+      details.deviceName = RNDI.deviceName ?? "Unknown";
+      details.buildId = Constants.nativeBuildVersion ?? "Unknown";
+      details.buildNumber = Constants.manifest?.version ?? "Unknown";
+      details.brand = RNDI.brand ?? "Unknown";
+      details.device = RNDI.modelName ?? "Unknown";
       details.deviceId = await AsyncStorage.getItem("deviceId");
 
       if (!details.deviceId) {
-        details.deviceId = Application.getAndroidId() ?? "Unknown";
+        details.deviceId = (await Application.getAndroidId()) ?? "Unknown";
         await AsyncStorage.setItem("deviceId", details.deviceId);
       }
 
-      details.deviceType = RNDI.deviceType ?? RNDI.DeviceType.UNKNOWN; // Device Type
-      details.hardware = "Unknown"; // Not available in Expo
-      details.manufacturer = RNDI.manufacturer ?? "Unknown"; // Manufacturer
+      details.deviceType = RNDI.deviceType ?? RNDI.DeviceType.UNKNOWN;
+      details.hardware = "Unknown";
+      details.manufacturer = RNDI.manufacturer ?? "Unknown";
       details.version = Constants.expoVersion ?? "Unknown";
       this.current = details;
     }
-    
+
     return this.current;
   }
-
-};
+}
